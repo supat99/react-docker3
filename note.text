@@ -1,0 +1,16 @@
+npm install 
+npm run dev
+npm run build
+npx serve -s dist
+docker login
+docker build -t supatz/react-docker-test3:0.1 .
+docker run -d -p 3000:3000 --name react-docker supatz/react-docker-test3:0.1
+docker push supatz/react-docker-test3:0.1
+
+git remote -v
+git remote remove origin
+git remote add origin https://github.com/supat99/react-docker3.git
+    1. commit code 
+    2. docker access token
+    3. ตรวจสอบและแก้ไขไฟล์ docker-build.yml สิ่งที่ต้องแก้ไข docker build และ docker push
+    4. เข้า github ไปที่ project แล้วก็เข้า setting ไปที่ secrets แล้วเลือก Actions กด New สร้าง Username กับ Usertoken
